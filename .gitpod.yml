@@ -1,0 +1,12 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: flutter doctor
+    command: |
+      flutter pub get
+      flutter run
+
+ports:
+  - port: 8080
+    onOpen: open-preview
