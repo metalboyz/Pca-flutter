@@ -1,9 +1,13 @@
 FROM gitpod/workspace-full
 
-# Install Flutter
+# Install Flutter dependencies
 RUN sudo apt-get update && sudo apt-get install -y curl unzip xz-utils git libglu1-mesa
-RUN git clone https://github.com/flutter/flutter.git /opt/flutter && \
-    /opt/flutter/bin/flutter --version
+
+# Clone Flutter into the workspace directory
+RUN git clone https://github.com/flutter/flutter.git /workspace/flutter
 
 # Set Flutter environment variables
-ENV PATH="/opt/flutter/bin:/opt/flutter/bin/cache/dart-sdk/bin:${PATH}"
+ENV PATH="/workspace/flutter/bin:/workspace/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
+# Run flutter doctor to pre-cache artifacts
+RUN flutter doctor
