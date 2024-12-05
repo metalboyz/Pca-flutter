@@ -30,7 +30,7 @@ RUN wget -q "https://storage.googleapis.com/flutter_infra_release/releases/stabl
     && rm -f "$_file_name" \
     && mkdir -p $ANDROID_HOME/cmdline-tools/latest \
     && mv $ANDROID_HOME/cmdline-tools/{bin,lib} $ANDROID_HOME/cmdline-tools/latest \
-    && yes | sdkmanager "platform-tools" "build-tools;36.0.0" "platforms;android-35" \
+    && yes | sdkmanager "platform-tools" "build-tools;36.0.0-rc1" "platforms;android-35" \
     && flutter precache && for _plat in web linux-desktop; do flutter config --enable-${_plat}; done \
     && flutter config --android-sdk $ANDROID_HOME \
     && yes | flutter doctor --android-licenses \
