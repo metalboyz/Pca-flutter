@@ -84,3 +84,10 @@ ports:
 vscode:
   extensions:
     - dart-code.flutter
+    - ms-vscode.remote-explore
+
+
+
+
+
+
